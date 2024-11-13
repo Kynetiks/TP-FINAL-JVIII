@@ -51,9 +51,11 @@ public class Tower_ : MonoBehaviour
         {
             if (enemy == null) { return; }
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy > closestDistance) {
+            Debug.Log("test: "+ distanceToEnemy);
+            if (distanceToEnemy < closestDistance) {
                 closestDistance = distanceToEnemy;
                 closestEnemy = enemy;
+                Debug.Log("en collision");
             }
         }
         if (closestEnemy != null) {
