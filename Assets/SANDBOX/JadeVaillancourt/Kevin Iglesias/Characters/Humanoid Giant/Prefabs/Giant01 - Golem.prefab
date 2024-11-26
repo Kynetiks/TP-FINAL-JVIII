@@ -2079,8 +2079,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8468617057500289297}
   - component: {fileID: 2550935751187727211}
-  - component: {fileID: 8328303820492735775}
   - component: {fileID: -1637004231168127012}
+  - component: {fileID: 4071175898843487195}
   m_Layer: 0
   m_Name: Giant01 - Golem
   m_TagString: Untagged
@@ -2126,33 +2126,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &8328303820492735775
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9137032837993464747}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &-1637004231168127012
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2174,3 +2147,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4071175898843487195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9137032837993464747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4a8be11865fc14084c5bc486b2bc52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Joueur: {fileID: 7480300505170567693, guid: 547ce379777f9dd4f9ee0270757d9a18, type: 3}
+  speed: 2.66
