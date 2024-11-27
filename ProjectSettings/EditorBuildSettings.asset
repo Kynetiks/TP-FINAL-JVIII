@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/SANDBOX/AliciaMichaud/SceneAcceuil.unity
+    guid: d04be3edf6c8d6d4faddebd21359878f
+  - enabled: 1
+    path: Assets/SANDBOX/AliciaMichaud/UIscenemain.unity
+    guid: 269a0939e4c35994eb390825e1724d50
+  - enabled: 1
+    path: Assets/SANDBOX/AliciaMichaud/SceneFin.unity
+    guid: 4cb80fa191ff2e6478a41f6e50c193c7
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d52cfaead757d8d40800ef4aeb7fc097,
       type: 2}
