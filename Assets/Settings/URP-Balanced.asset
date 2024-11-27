@@ -23,7 +23,11 @@ MonoBehaviour:
   m_RequireOpaqueTexture: 0
   m_OpaqueDownsampling: 1
   m_SupportsTerrainHoles: 1
+<<<<<<< Updated upstream
   m_SupportsHDR: 0
+=======
+  m_SupportsHDR: 1
+>>>>>>> Stashed changes
   m_HDRColorBufferPrecision: 0
   m_MSAA: 1
   m_RenderScale: 1
