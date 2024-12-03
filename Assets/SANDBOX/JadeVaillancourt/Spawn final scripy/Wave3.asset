@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07c077736a646c74b9cf8c0b3433d368, type: 3}
-  m_Name: Wave1
+  m_Name: Wave3
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 9137032837993464747, guid: d66c23583a584ef4195dbea312c0b2a7,
     type: 3}
-  initialEnemyCount: 10
+  initialEnemyCount: 30
   spawnInterval: 1
-  timeBetweenWaves: 10
+  timeBetweenWaves: 3
   enemiesPerWaveIncrease: 5

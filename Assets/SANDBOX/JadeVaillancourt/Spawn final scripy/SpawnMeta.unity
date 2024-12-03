@@ -303,10 +303,10 @@ MonoBehaviour:
   findSpawnPositions: {fileID: 452770692}
   enemyWaveDate:
   - {fileID: 11400000, guid: 175522d17f00b3641b9039e70ebaece7, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 47e5810365a94a745ab5511a1fb60203, type: 2}
+  - {fileID: 11400000, guid: 731f9f9b0a5c2a647bed61d974b80909, type: 2}
+  - {fileID: 11400000, guid: 0da552840dadfb347afaa9c29a0ca701, type: 2}
+  - {fileID: 11400000, guid: 2cc7e5282ed8edc48b6a362b2e59e3a0, type: 2}
   delayBeforeSpawn: 5
 --- !u!4 &755564393
 Transform:
@@ -493,6 +493,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1f9da98513b494a8010a5218d1a801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 9137032837993464747, guid: d66c23583a584ef4195dbea312c0b2a7,
+    type: 3}
+  initialEnemyCount: 0
+  spawnInterval: 5
+  timeBetweenWaves: 20
+  enemiesPerWaveIncrease: 10
 --- !u!4 &2087999784
 Transform:
   m_ObjectHideFlags: 0
