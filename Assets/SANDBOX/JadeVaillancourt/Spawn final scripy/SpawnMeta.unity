@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnOnStart: 1
-  SpawnObject: {fileID: 1845945369076765872, guid: d9af52bf624fb004abc7f4d28bdf39e2,
+  SpawnObject: {fileID: 9137032837993464747, guid: d66c23583a584ef4195dbea312c0b2a7,
     type: 3}
   SpawnAmount: 0
   MaxIterations: 1000
@@ -307,7 +307,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 731f9f9b0a5c2a647bed61d974b80909, type: 2}
   - {fileID: 11400000, guid: 0da552840dadfb347afaa9c29a0ca701, type: 2}
   - {fileID: 11400000, guid: 2cc7e5282ed8edc48b6a362b2e59e3a0, type: 2}
-  delayBeforeSpawn: 5
+  delayBeforeSpawn: 10
 --- !u!4 &755564393
 Transform:
   m_ObjectHideFlags: 0
@@ -464,56 +464,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee191920b8eb41b0960b1082a393a3e, type: 3}
---- !u!1 &2087999782
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2087999784}
-  - component: {fileID: 2087999783}
-  m_Layer: 0
-  m_Name: WaveSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2087999783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087999782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1f9da98513b494a8010a5218d1a801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 9137032837993464747, guid: d66c23583a584ef4195dbea312c0b2a7,
-    type: 3}
-  initialEnemyCount: 0
-  spawnInterval: 5
-  timeBetweenWaves: 20
-  enemiesPerWaveIncrease: 10
---- !u!4 &2087999784
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087999782}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.000882, y: -3.1928241, z: -2.2177098}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2144157287
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,4 +592,3 @@ SceneRoots:
   - {fileID: 1907610368}
   - {fileID: 452770693}
   - {fileID: 755564393}
-  - {fileID: 2087999784}
