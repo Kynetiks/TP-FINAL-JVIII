@@ -154,7 +154,7 @@ MonoBehaviour:
   SpawnOnStart: 1
   SpawnObject: {fileID: 9137032837993464747, guid: d66c23583a584ef4195dbea312c0b2a7,
     type: 3}
-  SpawnAmount: 0
+  SpawnAmount: 1
   MaxIterations: 1000
   SpawnLocations: 3
   Labels: 1
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   findSpawnPositions: {fileID: 452770692}
   enemyWaveDate:
+  - {fileID: 11400000, guid: 42e1c719b8cf6b3478b41a80f64441b2, type: 2}
   - {fileID: 11400000, guid: 175522d17f00b3641b9039e70ebaece7, type: 2}
   - {fileID: 11400000, guid: 47e5810365a94a745ab5511a1fb60203, type: 2}
   - {fileID: 11400000, guid: 731f9f9b0a5c2a647bed61d974b80909, type: 2}

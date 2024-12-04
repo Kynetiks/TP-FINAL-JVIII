@@ -17,4 +17,4 @@ MonoBehaviour:
   spawnAmount: 20
   spawnDelay: 2
   BetweenWavesDelay: 20
-  enemiesPerWaveIncrease: 10
+  enemiesPerWaveIncrease: 0

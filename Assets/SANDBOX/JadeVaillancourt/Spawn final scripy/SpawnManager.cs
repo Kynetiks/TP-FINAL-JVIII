@@ -18,12 +18,14 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        findSpawnPositions.SpawnAmount = enemyWaveDate[0].spawnAmount;
-        findSpawnPositions.StartSpawn(MRUK.Instance.GetCurrentRoom());
 
-        Debug.Log("test");
+      
+        findSpawnPositions.SpawnAmount = 1;
 
-        StartCoroutine(SpawnWaves());
+        Debug.Log("SpawnActive");
+
+         StartCoroutine(SpawnWaves());
+       
     }
 
 
@@ -41,6 +43,7 @@ public class SpawnManager : MonoBehaviour
         while (currentWaveIndex < enemyWaveDate.Count)
         {
             
+
             EnemyWaveData currentWave = enemyWaveDate[currentWaveIndex];
             Debug.Log("Spawning Wave " + (currentWaveIndex + 1));
 
@@ -63,7 +66,7 @@ public class SpawnManager : MonoBehaviour
 
         for (int i = 0; i < totalEnemiesToSpawn; i++)
         {
-           
+            Debug.Log("-------------------Spawn: " + currentWaveIndex);
             findSpawnPositions.SpawnObject = waveData.enemyPrefab;
 
             findSpawnPositions.StartSpawn(MRUK.Instance.GetCurrentRoom());
