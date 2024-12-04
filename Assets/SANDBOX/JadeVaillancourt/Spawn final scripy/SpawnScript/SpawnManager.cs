@@ -20,7 +20,7 @@ public class SpawnManager : MonoBehaviour
     {
 
       
-        findSpawnPositions.SpawnAmount = 1;
+       findSpawnPositions.SpawnAmount = 1;
 
         Debug.Log("SpawnActive");
 
