@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c077736a646c74b9cf8c0b3433d368, type: 3}
+  m_Name: Wave4Golem
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 9137032837993464747, guid: d66c23583a584ef4195dbea312c0b2a7,
+    type: 3}
+  spawnAmount: 40
+  spawnDelay: 1
+  BetweenWavesDelay: 60
+  enemiesPerWaveIncrease: 1
