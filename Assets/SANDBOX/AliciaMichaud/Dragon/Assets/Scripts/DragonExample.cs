@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class DragonExample : MonoBehaviour
 {
     private Animator anim;
+
+    // Hashes for animation states
     int IdleSimple;
     int IdleAgressive;
     int IdleRestless;
@@ -18,10 +19,18 @@ public class DragonExample : MonoBehaviour
     int TakeOff;
     int Die;
 
-    // Use this for initialization
+    // Reference to the Flame Stream (fire effect) prefab
+    public GameObject flameStreamPrefab;
+    private GameObject currentFlameStream;
+
+    // Position where the flame stream should appear (e.g., the dragon's mouth)
+    public Transform firePosition;
+
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        // Initialize animation state hashes
         IdleSimple = Animator.StringToHash("IdleSimple");
         IdleAgressive = Animator.StringToHash("IdleAgressive");
         IdleRestless = Animator.StringToHash("IdleRestless");
@@ -35,472 +44,65 @@ public class DragonExample : MonoBehaviour
         Lands = Animator.StringToHash("Lands");
         TakeOff = Animator.StringToHash("TakeOff");
         Die = Animator.StringToHash("Die");
-
     }
 
-    // Update is called once per frame
-    void Update()
+   void Update()
+{
+    // Vérifie si la touche Y est pressée pour lancer l'attaque
+    if (Input.GetKeyDown(KeyCode.Y))
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
         {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, true);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
+            Debug.Log("Lancer l'animation Drakaris");
+            // Désactive l'animation Idle et active Drakaris
+            anim.SetBool(IdleSimple, false);
+            anim.SetBool(Drakaris, true);
 
-            }
+            // Lance l'effet de feu
+            SpawnFlameStream();
         }
-        else if (Input.GetKeyUp(KeyCode.W))
+    }
+    // Vérifie si la touche Y est relâchée pour revenir à Idle
+    else if (Input.GetKeyUp(KeyCode.Y))
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Drakaris"))
         {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
-            {            //W to walk
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, true);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.Q))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleAgressive"))
-            {          //Q to Idle agressive
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, true);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.E))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleRestless"))
-            {            //E to Idle restless
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, true);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.R))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("BattleStance"))
-            {                //R to battle stance
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.T))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, true);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.T))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Bite"))
-            {              //T to bite
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Y))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, true);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.Y))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Drakaris"))
-            {          //Y to drakaris
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.U))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, true);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.U))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("FlyingFWD"))
-            {                        //U to Fly forward
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.I))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, true);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.I))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("FlyingAttack"))
-            {                        //I to flying attack
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, true);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.O))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hover"))
-            {                        //O to hover
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
+            Debug.Log("Retour à l'animation Idle");
+            // Désactive l'animation Drakaris et active Idle
+            anim.SetBool(Drakaris, false);
+            anim.SetBool(IdleSimple, true);
 
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, true);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-
-        }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Lands"))
-            {                        //A to land
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, true);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.P))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("TakeOff"))
-            {                        //P to take off
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("IdleSimple"))
-            {
-                anim.SetBool(IdleSimple, false);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, true);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Die"))
-            {                                                                                    //D to die
-                anim.SetBool(IdleSimple, true);
-                anim.SetBool(IdleAgressive, false);
-                anim.SetBool(IdleRestless, false);
-                anim.SetBool(Walk, false);
-                anim.SetBool(BattleStance, false);
-                anim.SetBool(Bite, false);
-                anim.SetBool(Drakaris, false);
-                anim.SetBool(FlyingFWD, false);
-                anim.SetBool(FlyingAttack, false);
-                anim.SetBool(Hover, false);
-                anim.SetBool(Lands, false);
-                anim.SetBool(TakeOff, false);
-                anim.SetBool(Die, false);
-            }
-
+            // Détruit l'effet de feu
+            DestroyFlameStream();
         }
     }
 }
+
+
+    // Method to spawn the flame stream effect
+    void SpawnFlameStream()
+    {
+        if (flameStreamPrefab != null && firePosition != null)
+
+        {
+            Debug.Log("Spawning Flame Stream at position: " + firePosition.position);
+            // Instantiate the flame stream effect at the fire position
+            currentFlameStream = Instantiate(flameStreamPrefab, firePosition.position, firePosition.rotation);
+            // Optionally, make the flame stream a child of the dragon to follow its movements
+            currentFlameStream.transform.parent = firePosition;
+
+            // You can add a timer to destroy the flame stream after a certain time (e.g., 3 seconds)
+            Destroy(currentFlameStream, 3f); // Adjust the time to your needs
+        }
+    }
+
+    // Method to destroy the flame stream effect
+    void DestroyFlameStream()
+    {
+        if (currentFlameStream != null)
+        {
+            Destroy(currentFlameStream);
+        }
+    }
+}
+
