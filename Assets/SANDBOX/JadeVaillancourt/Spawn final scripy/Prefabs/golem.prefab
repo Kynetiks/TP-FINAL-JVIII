@@ -143,4 +143,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 8825107266400765503}
   speed: 1
-  crystal: {fileID: 7480300505170567693, guid: 547ce379777f9dd4f9ee0270757d9a18, type: 3}
+  crystal: {fileID: 3491701025428282794, guid: ec0624dc6bb10b94f8a8b295c8d5dd4d, type: 3}

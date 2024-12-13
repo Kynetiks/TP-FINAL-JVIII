@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 13166986}
   - component: {fileID: 13166985}
   m_Layer: 0
-  m_Name: SpawnObjectTourelle
+  m_Name: SpawnObjectCrystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2369,7 +2369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &502412593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2417,7 +2417,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502412592}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3962,7 +3962,7 @@ PrefabInstance:
     - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44,
         type: 3}
       propertyPath: SceneSettings.DataSource
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8047981335285221976, guid: c2e00db6d2dfa42ac8d821db8d493a44,
         type: 3}
@@ -5285,7 +5285,16 @@ MonoBehaviour:
   SpawnOnStart: 1
   SeedValue: 0
   PrefabsToSpawn:
-  - Labels: 8080
+  - Labels: 1
+    Prefabs:
+    - {fileID: 8453304220933138370, guid: 4bac4b7aa7a74264f971e62691cdad82, type: 3}
+    PrefabSelection: 0
+    MatchAspectRatio: 0
+    CalculateFacingDirection: 0
+    Scaling: 0
+    Alignment: 0
+    IgnorePrefabSize: 0
+  - Labels: 8088
     Prefabs:
     - {fileID: 8453304220933138370, guid: c164786a3da7dd04c93fb16bd7c54c2d, type: 3}
     PrefabSelection: 0
@@ -6459,7 +6468,7 @@ GameObject:
   - component: {fileID: 1277124025}
   - component: {fileID: 1277124024}
   m_Layer: 0
-  m_Name: SpawnManagerTourelle
+  m_Name: SpawnManagerCrystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9035,52 +9044,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1433604474}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1738372845
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1738372847}
-  - component: {fileID: 1738372846}
-  m_Layer: 0
-  m_Name: XR Interaction Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1738372846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738372845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
---- !u!4 &1738372847
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738372845}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.640063, y: -1.3274119, z: 4.0876727}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1758517057
 GameObject:
@@ -11791,6 +11754,5 @@ SceneRoots:
   - {fileID: 740549836}
   - {fileID: 1057362488}
   - {fileID: 502412597}
-  - {fileID: 1738372847}
   - {fileID: 188028149}
   - {fileID: 1044641133}
