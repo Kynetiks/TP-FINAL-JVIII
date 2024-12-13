@@ -3,75 +3,75 @@ using UnityEngine;
 using Meta.XR.MRUtilityKit;
 using TMPro;
 
-public class DisplayLabel : MonoBehaviour
+public class SpawnTower : MonoBehaviour
 {
     [Header("Raycast Settings")]
-    [Tooltip("Point de départ du rayon pour détecter les ancres.")]
+    [Tooltip("Point de dï¿½part du rayon pour dï¿½tecter les ancres.")]
     [SerializeField] private Transform rayStartPoint;
 
     [Tooltip("Longueur maximale du rayon.")]
     [SerializeField] private float rayLength = 8.0f;
 
-    [Tooltip("Filtre des étiquettes des ancres à détecter.")]
+    [Tooltip("Filtre des ï¿½tiquettes des ancres ï¿½ dï¿½tecter.")]
     [SerializeField] private MRUKAnchor.SceneLabels labelFlag;
 
     [Header("Gizmo Display")]
-    [Tooltip("Objet Gizmo affiché à l'emplacement de l'ancre détectée.")]
+    [Tooltip("Objet Gizmo affichï¿½ ï¿½ l'emplacement de l'ancre dï¿½tectï¿½e.")]
     [SerializeField] private GameObject gizmoDisplay;
 
-    [Tooltip("Texte affiché sur le Gizmo.")]
+    [Tooltip("Texte affichï¿½ sur le Gizmo.")]
     [SerializeField] private TextMeshPro gizmoLabelText;
 
-    [Tooltip("Détermine si le texte du Gizmo est visible.")]
+    [Tooltip("Dï¿½termine si le texte du Gizmo est visible.")]
     [SerializeField] private bool showGizmoLabelText;
 
     [Header("Tower Spawn")]
-    [Tooltip("Préfabriqué de la tour à instancier.")]
-    [SerializeField] private GameObject towerPrefab;
+    [Tooltip("Prï¿½fabriquï¿½ de la tour ï¿½ instancier.")]
+    [SerializeField] public GameObject towerPrefab;
 
-    [Tooltip("Bouton utilisé pour faire apparaître une tour.")]
+    [Tooltip("Bouton utilisï¿½ pour faire apparaï¿½tre une tour.")]
     [SerializeField] private OVRInput.Button spawnButton;
 
-    // Variables privées
-    private MRUKRoom room; // Référence à la pièce actuelle détectée par MRUK
+    // Variables privï¿½es
+    private MRUKRoom room; // Rï¿½fï¿½rence ï¿½ la piï¿½ce actuelle dï¿½tectï¿½e par MRUK
     private Vector3 hitPoint; // Point d'impact du rayon
 
     private void Start()
     {
-        // Initialisation : récupération de la pièce actuelle
+        // Initialisation : rï¿½cupï¿½ration de la piï¿½ce actuelle
         room = MRUK.Instance.GetCurrentRoom();
 
-        // Configurer la visibilité du texte du Gizmo
+        // Configurer la visibilitï¿½ du texte du Gizmo
         gizmoLabelText.enabled = showGizmoLabelText;
     }
 
     private void Update()
     {
-        // Vérifier si une pièce a été détectée
+        // Vï¿½rifier si une piï¿½ce a ï¿½tï¿½ dï¿½tectï¿½e
         if (room == null)
         {
-            Debug.LogWarning("Aucune pièce détectée.");
+            Debug.LogWarning("Aucune piï¿½ce dï¿½tectï¿½e.");
             return;
         }
 
-        // Gérer le raycast pour détecter des ancres
+        // Gï¿½rer le raycast pour dï¿½tecter des ancres
         ProcessRaycast();
     }
 
     /// <summary>
-    /// Effectue un raycast à partir du point de départ pour détecter les ancres dans la scène.
+    /// Effectue un raycast ï¿½ partir du point de dï¿½part pour dï¿½tecter les ancres dans la scï¿½ne.
     /// </summary>
     private void ProcessRaycast()
     {
         Ray ray = new Ray(rayStartPoint.position, rayStartPoint.forward);
 
-        // Lancer le rayon et vérifier les collisions avec des ancres
+        // Lancer le rayon et vï¿½rifier les collisions avec des ancres
         if (room.Raycast(ray, rayLength, new LabelFilter(labelFlag), out RaycastHit hitInfo, out MRUKAnchor anchor))
         {
-            // Si un objet est détecté, gérer l'affichage du Gizmo
+            // Si un objet est dï¿½tectï¿½, gï¿½rer l'affichage du Gizmo
             HandleGizmoDisplay(hitInfo, anchor);
 
-            // Vérifier si l'angle du Gizmo est correct
+            // Vï¿½rifier si l'angle du Gizmo est correct
             if (IsGizmoPointingSkyward())
             {
                 HandleControllerAction(OVRInput.Controller.RTouch);
@@ -79,16 +79,16 @@ public class DisplayLabel : MonoBehaviour
         }
         else
         {
-            // Désactiver le Gizmo si aucun objet n'est détecté
+            // Dï¿½sactiver le Gizmo si aucun objet n'est dï¿½tectï¿½
             gizmoDisplay.SetActive(false);
         }
     }
 
     /// <summary>
-    /// Active et configure l'affichage du Gizmo en fonction de l'objet détecté.
+    /// Active et configure l'affichage du Gizmo en fonction de l'objet dï¿½tectï¿½.
     /// </summary>
     /// <param name="hitInfo">Informations sur l'impact du rayon.</param>
-    /// <param name="anchor">Ancre détectée par le raycast.</param>
+    /// <param name="anchor">Ancre dï¿½tectï¿½e par le raycast.</param>
     private void HandleGizmoDisplay(RaycastHit hitInfo, MRUKAnchor anchor)
     {
         gizmoDisplay.SetActive(true);
@@ -98,12 +98,12 @@ public class DisplayLabel : MonoBehaviour
         gizmoDisplay.transform.position = hitPoint;
         gizmoDisplay.transform.rotation = Quaternion.LookRotation(-hitInfo.normal);
 
-        // Mettre à jour le texte affiché
+        // Mettre ï¿½ jour le texte affichï¿½
         gizmoLabelText.text = $"Anchor: {anchor.Label}";
     }
 
     /// <summary>
-    /// Vérifie si le Gizmo pointe dans une direction "ciel".
+    /// Vï¿½rifie si le Gizmo pointe dans une direction "ciel".
     /// </summary>
     /// <returns>True si l'angle est dans les limites acceptables.</returns>
     private bool IsGizmoPointingSkyward()
@@ -112,7 +112,7 @@ public class DisplayLabel : MonoBehaviour
         const float minAngle = 89.0f;
         const float maxAngle = 91.0f;
 
-        // Vérifier si l'angle est dans la plage acceptée
+        // Vï¿½rifier si l'angle est dans la plage acceptï¿½e
         if (rotationXGizmo >= minAngle && rotationXGizmo <= maxAngle)
         {
             Debug.LogWarning("L'objet pointe vers le ciel !");
@@ -126,12 +126,12 @@ public class DisplayLabel : MonoBehaviour
     }
 
     /// <summary>
-    /// Gère les actions effectuées par le contrôleur lorsqu'un bouton est pressé.
+    /// Gï¿½re les actions effectuï¿½es par le contrï¿½leur lorsqu'un bouton est pressï¿½.
     /// </summary>
-    /// <param name="controller">Contrôleur utilisé pour l'interaction.</param>
+    /// <param name="controller">Contrï¿½leur utilisï¿½ pour l'interaction.</param>
     private void HandleControllerAction(OVRInput.Controller controller)
     {
-        // Vérifier si le bouton de création de tour est pressé
+        // Vï¿½rifier si le bouton de crï¿½ation de tour est pressï¿½
         if (OVRInput.GetDown(spawnButton, controller))
         {
             Instantiate(towerPrefab, hitPoint, Quaternion.identity);
