@@ -14,14 +14,14 @@ public class EnnemiMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        crystal = GameObject.FindWithTag("Crystal");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Vector3 targetPosition = crystal.transform.position;
-        Vector3 targetPosition = Camera.main.transform.position;
+        Vector3 targetPosition = crystal.transform.position;
+        //Vector3 targetPosition = Camera.main.transform.position;
 
         agent.SetDestination(targetPosition);
         agent.speed = speed;

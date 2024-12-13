@@ -259,9 +259,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5167548217264913416}
   - component: {fileID: 5578794953489831780}
+  - component: {fileID: 8351823024698524618}
   m_Layer: 8
   m_Name: projectile_magie
-  m_TagString: Untagged
+  m_TagString: Crystal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3491701025428282794}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90bb4de1488f7be4a93cb5890715bba0, type: 3}
   m_Name: 
@@ -304,6 +305,27 @@ MonoBehaviour:
   speed: 10
   target: {fileID: 0}
   damage: 10
+--- !u!65 &8351823024698524618
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491701025428282794}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.29, y: 4.77, z: 4.06}
+  m_Center: {x: 0, y: 1.97, z: 0}
 --- !u!1 &4071761962033523308
 GameObject:
   m_ObjectHideFlags: 0
