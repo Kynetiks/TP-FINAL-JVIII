@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c077736a646c74b9cf8c0b3433d368, type: 3}
   m_Name: Wave1Golem
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 9137032837993464747, guid: 318a73cbfae59034392fc74e993f4201,
+  enemyPrefab: {fileID: 3342206743011232707, guid: ac78a6ec7e3a16c4a9d7241c508bd633,
     type: 3}
   spawnAmount: 10
   spawnDelay: 2

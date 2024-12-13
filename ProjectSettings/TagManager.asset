@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - enemy
   - Cible
+  - Crystal
+  - mainTourelle
   layers:
   - Default
   - TransparentFX
