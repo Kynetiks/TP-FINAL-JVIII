@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int points = 1; 
+    public int points = 1;
+    public bool NearTarget = false;
 }
