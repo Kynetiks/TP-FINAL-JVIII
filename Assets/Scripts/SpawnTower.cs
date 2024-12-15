@@ -63,25 +63,25 @@ public class DisplayLabel : MonoBehaviour
     /// </summary>
     private void ProcessRaycast()
     {
-        // Ray ray = new Ray(rayStartPoint.position, rayStartPoint.forward);
+        Ray ray = new Ray(rayStartPoint.position, rayStartPoint.forward);
 
-        // // Lancer le rayon et v�rifier les collisions avec des ancres
-        // if (room.Raycast(ray, rayLength, new LabelFilter(labelFlag), out RaycastHit hitInfo, out MRUKAnchor anchor))
-        // {
-        //     // Si un objet est d�tect�, g�rer l'affichage du Gizmo
-        //     HandleGizmoDisplay(hitInfo, anchor);
+        // Lancer le rayon et v�rifier les collisions avec des ancres
+        if (room.Raycast(ray, rayLength, new LabelFilter(labelFlag), out RaycastHit hitInfo, out MRUKAnchor anchor))
+        {
+            // Si un objet est d�tect�, g�rer l'affichage du Gizmo
+            HandleGizmoDisplay(hitInfo, anchor);
 
-        //     // V�rifier si l'angle du Gizmo est correct
-        //     if (IsGizmoPointingSkyward())
-        //     {
-        //         HandleControllerAction(OVRInput.Controller.RTouch);
-        //     }
-        // }
-        // else
-        // {
-        //     // D�sactiver le Gizmo si aucun objet n'est d�tect�
-        //     gizmoDisplay.SetActive(false);
-        // }
+            // V�rifier si l'angle du Gizmo est correct
+            if (IsGizmoPointingSkyward())
+            {
+                HandleControllerAction(OVRInput.Controller.RTouch);
+            }
+        }
+        else
+        {
+            // D�sactiver le Gizmo si aucun objet n'est d�tect�
+            gizmoDisplay.SetActive(false);
+        }
     }
 
     /// <summary>
