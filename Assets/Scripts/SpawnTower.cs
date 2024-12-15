@@ -27,7 +27,7 @@ public class DisplayLabel : MonoBehaviour
 
     [Header("Tower Spawn")]
     [Tooltip("Pr�fabriqu� de la tour � instancier.")]
-    [SerializeField] private GameObject towerPrefab;
+    [SerializeField] public GameObject towerPrefab;
 
     [Tooltip("Bouton utilis� pour faire appara�tre une tour.")]
     [SerializeField] private OVRInput.Button spawnButton;
