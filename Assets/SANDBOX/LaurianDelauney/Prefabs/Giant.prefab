@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 3966662643037543959}
   - component: {fileID: 7554696998099168192}
   m_Layer: 0
-  m_Name: Giant01 - Golem
+  m_Name: Giant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
