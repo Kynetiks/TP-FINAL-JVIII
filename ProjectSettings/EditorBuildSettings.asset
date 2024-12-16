@@ -9,6 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ALB-canon.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: a1420300709d6b1498dbdae70d4e1e24,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d52cfaead757d8d40800ef4aeb7fc097,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: c2e0448016959934e803cc52946998b3,
