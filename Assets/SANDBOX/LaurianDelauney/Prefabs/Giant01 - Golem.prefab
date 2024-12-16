@@ -676,6 +676,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3966662643037543959}
   - component: {fileID: 7554696998099168192}
+  - component: {fileID: -8614900252224253648}
+  - component: {fileID: 1281341331375690777}
   m_Layer: 0
   m_Name: Giant01 - Golem
   m_TagString: Untagged
@@ -693,8 +695,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.3329802, y: 0, z: -1.5379375}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9129832118503915213}
   - {fileID: 4807699726900260462}
@@ -721,6 +723,43 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &-8614900252224253648
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914604599018101087}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1281341331375690777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914604599018101087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6ce72da54ab714ca4677728b247978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: -8614900252224253648}
+  speed: 1
+  crystal: {fileID: 7480300505170567693, guid: 547ce379777f9dd4f9ee0270757d9a18, type: 3}
 --- !u!1 &2940411827332620300
 GameObject:
   m_ObjectHideFlags: 0
