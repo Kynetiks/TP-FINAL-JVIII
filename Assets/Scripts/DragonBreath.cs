@@ -30,4 +30,24 @@ public class DragonBreath : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // Vérifie si l'objet avec lequel il entre en collision est un ennemi
+        if (other.CompareTag("Crystal"))
+        {
+
+            //GameObject clone = Instantiate(vfxBreath);
+            //clone.transform.position = bouche.transform.position;
+            //clone.transform.rotation = bouche.transform.rotation;
+
+            Debug.Log("Crystal perdu");
+            if (animator != null)
+            {
+                animator.SetBool("NearTarget", false);
+            }
+
+
+        }
+    }
 }
