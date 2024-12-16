@@ -679,6 +679,8 @@ GameObject:
   - component: {fileID: 524861859539788148}
   - component: {fileID: 8032072028369133983}
   - component: {fileID: 8667905721879694760}
+  - component: {fileID: -4614526772515646450}
+  - component: {fileID: -3695081660161087250}
   m_Layer: 0
   m_Name: Giant
   m_TagString: Enemy
@@ -788,6 +790,43 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &-4614526772515646450
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914604599018101087}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &-3695081660161087250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914604599018101087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6ce72da54ab714ca4677728b247978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: -4614526772515646450}
+  speed: 1
+  crystal: {fileID: 3491701025428282794, guid: ec0624dc6bb10b94f8a8b295c8d5dd4d, type: 3}
 --- !u!1 &2940411827332620300
 GameObject:
   m_ObjectHideFlags: 0
