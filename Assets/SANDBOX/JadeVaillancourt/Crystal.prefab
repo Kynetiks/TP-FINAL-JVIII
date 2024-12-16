@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 3491701025428282794, guid: ec0624dc6bb10b94f8a8b295c8d5dd4d,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Crystal
       objectReference: {fileID: 0}
     - target: {fileID: 5167548217264913416, guid: ec0624dc6bb10b94f8a8b295c8d5dd4d,
         type: 3}
