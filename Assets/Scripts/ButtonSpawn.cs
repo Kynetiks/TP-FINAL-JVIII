@@ -10,6 +10,7 @@ public class ButtonSpawn : MonoBehaviour
 
     public void ChangeTower(GameObject tower)
     {
+        Debug.Log("Test: "+ tower);
         spawnTower.towerPrefab = tower;
     }
 }
