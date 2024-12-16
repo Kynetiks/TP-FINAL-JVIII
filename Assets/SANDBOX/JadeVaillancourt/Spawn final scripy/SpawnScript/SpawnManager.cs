@@ -35,10 +35,10 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-     private IEnumerator SpawnWaves()
+    private IEnumerator SpawnWaves()
     {
-        // Attente initiale avant de commencer les vagues
-        yield return new WaitForSeconds(delayBeforeSpawn);
+    // Attente initiale avant de commencer les vagues
+    yield return new WaitForSeconds(delayBeforeSpawn);
 
         while (currentWaveIndex < enemyWaveDate.Count)
         {
