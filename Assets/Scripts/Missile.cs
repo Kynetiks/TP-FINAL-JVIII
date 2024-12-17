@@ -25,6 +25,8 @@ public class Missile : MonoBehaviour
             Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
             int points = enemyScript != null ? enemyScript.points : 0;
 
+            ScoreManager.instance.AddScore(points); // ajoute le score 
+
             // Instancie le texte flottant au niveau de la collision
             if (floatingTextPrefab != null)
             {
