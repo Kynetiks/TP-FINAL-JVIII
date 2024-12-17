@@ -3,33 +3,65 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 10f;      // Vitesse du projectile
-    public Transform target;       // Cible vers laquelle le projectile se déplace
-    public float damage = 10f;     // Dégâts infligés à la cible (si besoin)
+    public Transform target;       // Cible vers laquelle le projectile se dï¿½place
+    public float damage = 10f;     // Dï¿½gï¿½ts infligï¿½s ï¿½ la cible (si besoin)
+    public EnemyBehavior enemyBehavior;
 
     void Start()
     {
-        // Si la cible n'est pas définie, on la trouve automatiquement
+        // Si la cible n'est pas dï¿½finie, on la trouve automatiquement
         if (target == null)
         {
-            Debug.LogError("Aucune cible assignée au projectile !");
-            Destroy(gameObject); // Détruire le projectile si aucune cible n'est définie
+            Debug.LogError("Aucune cible assignï¿½e au projectile !");
+            Destroy(gameObject); // Dï¿½truire le projectile si aucune cible n'est dï¿½finie
         }
+
+
     }
 
     void Update()
     {
         if (target != null)
         {
-            // Se déplacer vers la cible
+            // Se dï¿½placer vers la cible
             Vector3 direction = target.position - transform.position;  // Calculer la direction vers la cible
-            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World); // Déplacer le projectile
+            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World); // Dï¿½placer le projectile
 
-            // Vérifier si le projectile atteint la cible
+            // Vï¿½rifier si le projectile atteint la cible
             if (Vector3.Distance(transform.position, target.position) <= 0.1f)
             {
-                // Ici, on pourrait appliquer des dégâts ou détruire le projectile
-                Destroy(gameObject); // Détruire le projectile lorsque celui-ci atteint la cible
+                // Ici, on pourrait appliquer des dï¿½gï¿½ts ou dï¿½truire le projectile
+                Destroy(gameObject); // Dï¿½truire le projectile lorsque celui-ci atteint la cible
+                if (enemyBehavior != null)
+                {
+                    // Appeler la mï¿½thode Death() de ScriptB
+                    enemyBehavior.Death();
+                }
             }
         }
     }
+
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    // Vï¿½rifie si l'objet avec lequel le projectile entre en collision a le script EnemyBehavior
+    //    if (collision.gameObject.CompareTag("Enemy"))
+    //    {
+    //        // Rï¿½cupï¿½re le script EnemyBehavior attachï¿½ ï¿½ l'ennemi
+    //        EnemyBehavior enemyBehavior = collision.gameObject.GetComponent<EnemyBehavior>();
+
+    //        // Vï¿½rifie si EnemyBehavior a bien ï¿½tï¿½ trouvï¿½
+    //        if (enemyBehavior != null)
+    //        {
+    //            // Appeler la fonction Death() du script EnemyBehavior
+    //            enemyBehavior.Death();
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("EnemyBehavior n'a pas ï¿½tï¿½ trouvï¿½ sur l'objet de l'ennemi.");
+    //        }
+
+    //        // Dï¿½truire le projectile (si vous le souhaitez)
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

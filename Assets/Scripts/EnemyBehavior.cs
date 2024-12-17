@@ -15,6 +15,7 @@ public class EnemyBehavior : MonoBehaviour
         GameObject clone = Instantiate(vfxSpawn);
         clone.transform.position = gameObject.transform.position;
     }
+
     public void Death()
     {
         GameObject clone = Instantiate(vfxDeath);

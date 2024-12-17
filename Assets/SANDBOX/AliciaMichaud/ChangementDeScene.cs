@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ChangementDeScene : MonoBehaviour
 {
     public void cs(){
-        SceneManager.LoadScene("UIscenemain");
+        SceneManager.LoadScene("SpawnMeta");
     }
     public void restart(){
         SceneManager.LoadScene("SceneAcceuil");

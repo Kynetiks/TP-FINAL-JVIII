@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4353939385083084551}
   - component: {fileID: 6445405837801531437}
   - component: {fileID: 4418691821071971380}
+  - component: {fileID: 5185326733479015021}
   m_Layer: 0
   m_Name: ballista-arrow
   m_TagString: Untagged
@@ -30,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.0609734, z: 0.102951035}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -122,3 +123,17 @@ MonoBehaviour:
   speed: 10
   target: {fileID: 0}
   damage: 10
+--- !u!114 &5185326733479015021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130721762997793427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbea2e68e105cae478d4c92eefa83f82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingTextPrefab: {fileID: 1349353377670350788, guid: f7703ade5424fbf46baa2b1b9c98e909,
+    type: 3}
