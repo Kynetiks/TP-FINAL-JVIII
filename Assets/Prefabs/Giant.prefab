@@ -684,7 +684,7 @@ GameObject:
   - component: {fileID: -2879448189110347874}
   m_Layer: 0
   m_Name: Giant
-  m_TagString: Enemy
+  m_TagString: Crystal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: -2582754858021715928}
   speed: 1
-  crystal: {fileID: 7480300505170567693, guid: 547ce379777f9dd4f9ee0270757d9a18, type: 3}
+  crystal: {fileID: 5004313442888241271, guid: 2e2ce285d3fb59946926a4e4c3b91096, type: 3}
 --- !u!114 &-2879448189110347874
 MonoBehaviour:
   m_ObjectHideFlags: 0
