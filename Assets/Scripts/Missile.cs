@@ -35,9 +35,9 @@ public class Missile : MonoBehaviour
             }
 
             // Détruit l'ennemi et le missile
-            //Destroy(collision.gameObject);
-            //Destroy(gameObject);
-            
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+
         }
     }
 

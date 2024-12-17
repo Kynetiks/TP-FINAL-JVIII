@@ -36,32 +36,34 @@ public class Projectile : MonoBehaviour
                 {
                     // Appeler la m�thode Death() de ScriptB
                     enemyBehavior.Death();
+
                 }
             }
         }
     }
 
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    // V�rifie si l'objet avec lequel le projectile entre en collision a le script EnemyBehavior
-    //    if (collision.gameObject.CompareTag("Enemy"))
-    //    {
-    //        // R�cup�re le script EnemyBehavior attach� � l'ennemi
-    //        EnemyBehavior enemyBehavior = collision.gameObject.GetComponent<EnemyBehavior>();
+    void OnCollisionEnter(Collision collision)
+    {
+        // V�rifie si l'objet avec lequel le projectile entre en collision a le script EnemyBehavior
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // R�cup�re le script EnemyBehavior attach� � l'ennemi
+            EnemyBehavior enemyBehavior = collision.gameObject.GetComponent<EnemyBehavior>();
 
-    //        // V�rifie si EnemyBehavior a bien �t� trouv�
-    //        if (enemyBehavior != null)
-    //        {
-    //            // Appeler la fonction Death() du script EnemyBehavior
-    //            enemyBehavior.Death();
-    //        }
-    //        else
-    //        {
-    //            Debug.LogError("EnemyBehavior n'a pas �t� trouv� sur l'objet de l'ennemi.");
-    //        }
+            // V�rifie si EnemyBehavior a bien �t� trouv�
+            if (enemyBehavior != null)
+            {
+                // Appeler la fonction Death() du script EnemyBehavior
+                enemyBehavior.Death();
+            }
+            else
+            {
+                Debug.LogError("EnemyBehavior n'a pas �t� trouv� sur l'objet de l'ennemi.");
+            }
 
-    //        // D�truire le projectile (si vous le souhaitez)
-    //        Destroy(gameObject);
-    //    }
-    //}
+            // D�truire le projectile (si vous le souhaitez)
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
+    }
 }
