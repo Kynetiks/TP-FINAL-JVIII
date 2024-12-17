@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Missile
+  - Enemy
+  - enemy
+  - Cible
+  - Crystal
+  - mainTourelle
   layers:
   - Default
   - TransparentFX
