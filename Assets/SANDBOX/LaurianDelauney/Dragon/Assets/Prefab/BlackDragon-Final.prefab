@@ -3358,8 +3358,9 @@ GameObject:
   - component: {fileID: 4123770570308993521}
   - component: {fileID: 2988012630778222169}
   - component: {fileID: 1557316396058075139}
+  - component: {fileID: 508992116256800817}
   m_Layer: 0
-  m_Name: BlackDragon
+  m_Name: BlackDragon-Final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3374,8 +3375,8 @@ Transform:
   m_GameObject: {fileID: 1703160672665336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.17}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4791570622793728}
@@ -3428,7 +3429,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3443,7 +3444,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!65 &103670553927129956
 BoxCollider:
@@ -3517,6 +3518,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vfxBreath: {fileID: 1973075987484898, guid: bccc7a794e75b2a44a4b0dac69160b7b, type: 3}
   bouche: {fileID: 8945915137419376087}
+--- !u!114 &508992116256800817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703160672665336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b594f6e685acea143b35cd50c336f6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
 --- !u!1 &1707645842036106
 GameObject:
   m_ObjectHideFlags: 0

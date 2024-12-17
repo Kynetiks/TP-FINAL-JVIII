@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c077736a646c74b9cf8c0b3433d368, type: 3}
   m_Name: Wave3Monstre 1
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6078943088739730792, guid: a558962a1e64f6845bad8958cdd4574f,
+  enemyPrefab: {fileID: 7347594215713850315, guid: 1f4ffc9ce07f9d04c8cd7563b12180de,
     type: 3}
   spawnAmount: 5
   spawnDelay: 5

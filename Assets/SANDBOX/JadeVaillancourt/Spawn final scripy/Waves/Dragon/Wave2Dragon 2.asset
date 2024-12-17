@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c077736a646c74b9cf8c0b3433d368, type: 3}
   m_Name: Wave2Dragon 2
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3756288499771973261, guid: 5bfe1a5e365450743ab0c62335943d99,
+  enemyPrefab: {fileID: 1703160672665336, guid: 51a5e06934e40e1468d0367239466bc4,
     type: 3}
   spawnAmount: 3
   spawnDelay: 10
