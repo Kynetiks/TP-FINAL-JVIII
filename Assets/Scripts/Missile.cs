@@ -8,6 +8,7 @@ public class Missile : MonoBehaviour
     public GameObject floatingTextPrefab; // Référence au prefab de texte flottant
     private Transform trans; // Référence au transform de la caméra
     private Vector3 offset = new Vector3(0, 180, 0); // Offset pour inverser l'orientation
+    
 
     private void Start()
     {
@@ -32,8 +33,9 @@ public class Missile : MonoBehaviour
             }
 
             // Détruit l'ennemi et le missile
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            //Destroy(collision.gameObject);
+            //Destroy(gameObject);
+            
         }
     }
 
